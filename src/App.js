@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 // ─── TASKS DATA ───────────────────────────────────────────────────────────────
 // ─── ALL EXERCISES: TWO APPROACHES EACH (from official JSON + alternate) ─────
@@ -2766,8 +2766,8 @@ const GO_BASICS = [
   { icon: "🧩", title: "Functions", body: '`func add(a, b int) int { return a + b }`. Go supports multiple return values: `func f() (int, error)`.' },
   { icon: "📌", title: "Naming Rules", body: 'camelCase for variables (`myName`). PascalCase for exported (`MyFunc`). Short names in loops (`i`, `v`, `c`) are encouraged.' },
   { icon: "🚀", title: "z01 Library", body: '`z01.PrintRune(r)` prints one rune/character. Import with `"github.com/01-edu/z01"`. Use it when fmt is not allowed.' },
-  { icon: "🚫", title: "Don\'ts", body: "Don't declare a variable and not use it — Go won't compile. Don't forget imports. No semicolons at line ends." },
-  { icon: "✅", title: "Do\'s", body: "Use `gofmt` to auto-format. Keep functions small and focused. Read error messages carefully — Go's are very helpful!" },
+  { icon: "🚫", title: "Don'ts", body: "Don't declare a variable and not use it — Go won't compile. Don't forget imports. No semicolons at line ends." },
+  { icon: "✅", title: "Do's", body: "Use `gofmt` to auto-format. Keep functions small and focused. Read error messages carefully — Go's are very helpful!" },
 ];
 
 // ─── UTILITIES ────────────────────────────────────────────────────────────────
@@ -2840,6 +2840,7 @@ function SplashScreen({ onDone }) {
       }
     }, 28);
     return () => clearInterval(iv);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -3402,7 +3403,6 @@ function VizLastWord({ color }) {
 }
 
 function VizRepeatAlpha({ color }) {
-  const str="abc";
   const [s,setS]=useState(0);
   const steps=[{note:"Each letter repeats by its alphabet position"},
     {c:"a",pos:1,out:"a",note:"'a' is position 1 → print 1 time: 'a'"},
